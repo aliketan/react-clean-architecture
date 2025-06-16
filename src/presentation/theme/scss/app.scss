@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+//node modules'
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import "/node_modules/react-toastify/dist/ReactToastify.css";
+
+//abstracts
+@import "abstracts/_breakpoints.scss";
+@import "abstracts/_mixins.scss";
+
+//base
+@import "base/_base.scss";
+@import "base/_typography.scss";
+@import "base/_fonts.scss";
+@import "base/_colors.scss";
+@import "base/_icons.scss";
+@import "base/_buttons.scss";
+@import "base/_inputs.scss";
+
+//components
+@import "components/_header.scss";
+@import "components/_footer.scss";
+
+//pages
+@import "pages/_style.scss";
+
+//vendors
+

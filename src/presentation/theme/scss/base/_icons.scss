@@ -1,0 +1,20 @@
+@mixin svg($name, $width, $height) {
+  width: $width;
+	height: $height;
+  background-image: url('assets/images/svg/#{$name}.svg');
+}
+
+@mixin extend-icon($name, $size, $color)
+{
+   @extend [class^="icon-"];
+   @extend [class*=" icon-"];
+   @extend .#{$name}:before;
+   color:$color;
+   font-size: $size;
+}
+
+[class^="svg-"], [class*=" svg-"] {
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+}

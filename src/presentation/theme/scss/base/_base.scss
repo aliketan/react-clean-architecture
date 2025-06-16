@@ -1,0 +1,104 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+.opacity--1{ opacity: .1!important; }
+.opacity--2{ opacity: .2!important; }
+.opacity--3{ opacity: .3!important; }
+.opacity--4{ opacity: .4!important; }
+.opacity--5{ opacity: .5!important; }
+.opacity--6{ opacity: .6!important; }
+.opacity--7{ opacity: .7!important; }
+.opacity--8{ opacity: .8!important; }
+.opacity--9{ opacity: .9!important; }
+.opacity--10{ opacity: 1!important; }
+
+@for $s from 0 through 100 {
+    .border-radius--#{$s}  { border-radius:$s+px !important; }
+}
+
+.border-radius--3 {
+    @include border-radius(3px, 3px, 3px, 3px)
+}
+.border-radius--4 {
+    @include border-radius(4px, 4px, 4px, 4px)
+}
+.border-radius--5 {
+    @include border-radius(5px, 5px, 5px, 5px)
+}
+.border-radius--10 {
+    @include border-radius(10px, 10px, 10px, 10px)
+}
+.border-radius--15 {
+    @include border-radius(15px, 15px, 15px, 15px)
+}
+.border-radius--20 {
+    @include border-radius(20px, 20px, 20px, 20px)
+}
+.border-radius--25 {
+    @include border-radius(25px, 25px, 25px, 25px)
+}
+
+@for $s from 1 through 100 {
+    .border-top--#{$s}  { border-top:$s+px solid transparent !important; }
+}
+
+@for $s from 1 through 100 {
+    .border-bottom--#{$s}  { border-bottom: $s+px solid transparent !important; }
+}
+
+@for $s from 1 through 100 {
+    .border-left--#{$s}  { border-left: $s+px solid transparent !important; }
+}
+
+@for $s from 1 through 100 {
+    .border-right--#{$s}  { border-right: $s+px solid transparent !important; }
+}
+
+
+
+@include media-breakpoint-down(lg)  { }
+@include media-breakpoint-down(md)  { }
+@include media-breakpoint-down(sm)  { }
+@include media-breakpoint-down(def) { }

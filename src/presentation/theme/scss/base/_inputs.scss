@@ -1,0 +1,15 @@
+input, textarea {
+    outline: none !important;
+
+    &:focus {
+        box-shadow: none !important;
+        border-color:#ddd !important;
+    }
+}
+
+
+
+@include media-breakpoint-down(lg)  { }
+@include media-breakpoint-down(md)  { }
+@include media-breakpoint-down(sm)  { }
+@include media-breakpoint-down(def) { }

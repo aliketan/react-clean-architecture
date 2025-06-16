@@ -1,0 +1,36 @@
+header {
+    padding: 18px 30px;
+    color: $color--white;
+    @include font-size(16);
+    font-weight: 500;
+
+    ul {
+        li {
+            a {
+                text-decoration: none;
+                display: block;
+                color:$color--white;
+                position: relative;
+                padding-bottom: 5px;
+
+                &:after {
+                    content:'';
+                    position: absolute;
+                    width: 0px;
+                    height: 1px;
+                    background-color: $color--white;
+                    bottom: 0px;
+                    left:0px;
+                    transition: 250ms;
+                }
+
+                &.active {
+                    &:after {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+/* ----------------- GLOBAL TYPE SIZE START ----------------- */
+@for $s from 4 through 100 {
+    .font-size--#{$s} {
+        @include font-size($s, ($s + 5)+px);
+    }
+}
+
+@for $s from 1 through 100 {
+    .line-height--#{$s}  { line-height: $s+px!important; }
+}
+
+
+@for $s from 100 through 900 {
+    .font-weight--#{$s}  { font-weight: $s!important; }
+}
+
+.font-weight--bold {
+    font-weight: bold;
+}
+
+.font-weight--normal {
+    font-weight: normal;
+}

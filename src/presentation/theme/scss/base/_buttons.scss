@@ -1,0 +1,13 @@
+button {
+  outline: none !important;
+  box-shadow: none !important;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+@include media-breakpoint-down(lg)  { }
+@include media-breakpoint-down(md)  { }
+@include media-breakpoint-down(sm)  { }
+@include media-breakpoint-down(def) { }

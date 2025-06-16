@@ -1,0 +1,200 @@
+$grid-breakpoints: (
+    def: 0px,
+    sm: 575.98px,
+    md: 767.98px,
+    lg: 991.98px,
+    xl: 1199.98px
+);
+$border-width : 1px;
+$border-color : #DEE2E6;
+
+@each $breakpoint in map-keys($grid-breakpoints){
+    @include media-breakpoint-up($breakpoint){
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .border#{$infix}          { border: $border-width solid $border-color !important; }
+
+        .border#{$infix}-top      { border-top: $border-width solid $border-color !important; }
+        .border#{$infix}-right    { border-right: $border-width solid $border-color !important; }
+        .border#{$infix}-bottom   { border-bottom: $border-width solid $border-color !important; }
+        .border#{$infix}-left     { border-left: $border-width solid $border-color !important; }
+
+        .border#{$infix}-top-0    { border-top: 0 !important; }
+        .border#{$infix}-right-0  { border-right: 0 !important; }
+        .border#{$infix}-bottom-0 { border-bottom: 0 !important; }
+        .border#{$infix}-left-0   { border-left: 0 !important; }
+
+        .border#{$infix}-x        {
+            border-left: $border-width solid $border-color !important;
+            border-right: $border-width solid $border-color !important;
+        }
+
+        .border#{$infix}-y        {
+            border-top: $border-width solid $border-color !important;
+            border-bottom: $border-width solid $border-color !important;
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints){
+    @include media-breakpoint-up($breakpoint){
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .border#{$infix}-dashed           { border: $border-width dashed $border-color !important; }
+
+        .border#{$infix}-dashed-top       { border-top: $border-width dashed $border-color !important; }
+        .border#{$infix}-dashed-right     { border-right: $border-width dashed $border-color !important; }
+        .border#{$infix}-dashed-bottom    { border-bottom: $border-width dashed $border-color !important; }
+        .border#{$infix}-dashed-left      { border-left: $border-width dashed $border-color !important; }
+
+        .border#{$infix}-dashed-top-0     { border-top: 0 !important; }
+        .border#{$infix}-dashed-right-0   { border-right: 0 !important; }
+        .border#{$infix}-dashed-bottom-0  { border-bottom: 0 !important; }
+        .border#{$infix}-dashed-left-0    { border-left: 0 !important; }
+
+        .border#{$infix}-dashed-x         {
+            border-left: $border-width dashed $border-color !important;
+            border-right: $border-width dashed $border-color !important;
+        }
+
+        .border#{$infix}-dashed-y         {
+            border-top: $border-width dashed $border-color !important;
+            border-bottom: $border-width dashed $border-color !important;
+        }
+    }
+}
+
+@mixin border-radius($topleft, $topright, $bottomleft, $bottomright){
+    border-top-left-radius: $topleft;
+    border-top-right-radius: $topright;
+    border-bottom-left-radius: $bottomleft;
+    border-bottom-right-radius: $bottomright;
+}
+
+@mixin transition($what: all, $time: 0.2s, $how: ease-in-out){
+    -webkit-transition: $what $time $how;
+    -moz-transition:    $what $time $how;
+    -ms-transition:     $what $time $how;
+    -o-transition:      $what $time $how;
+    transition:         $what $time $how;
+}
+
+@mixin linear-gradient($direction, $from, $to, $width){
+    background-image: linear-gradient($direction, $from 0%, $to 100%);
+    background-image: -webkit-linear-gradient($direction, $from 0%, $to 100%);
+    background-image: -moz-linear-gradient($direction, $from 0%, $to 100%);
+}
+
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+}
+
+@mixin position-align($position:middle) { 
+    position: absolute;
+
+    @if $position == "middle" {
+        top:50%;
+        -ms-transform:translateY(-50%);
+        transform:translateY(-50%); 
+    }
+    @else if $position == "top" {
+        top:0px; 
+        bottom:auto;
+        transform:none; 
+        -ms-transform:none;
+    }
+    @else if $position == "bottom" {
+        top:auto; 
+        bottom:0px;
+        transform:none; 
+        -ms-transform:none;
+    }
+}
+
+@mixin font-size($size, $lineHeight: 100%) {
+    font-size: #{$size}px;
+
+    @if $lineHeight != "100%"
+    {
+        line-height: #{$lineHeight};
+    }@else
+    {
+        line-height: #{$lineHeight + 5}px;
+    }
+    
+}
+
+@for $s from 1 through 10 {
+    .border--#{$s} {
+        border-width: $s+px !important;
+        border-style: solid !important;
+    }
+}
+
+@mixin border($size, $type, $color, $direction:all) {
+    
+    @if $direction=="top"
+    {
+        border-top:$size $type $color;
+    }
+    @else if $direction=="bottom"
+    {
+        border-bottom:$size $type $color;
+    }
+    @else if $direction=="left"
+    {
+        border-left:$size $type $color;
+    }
+    @else if $direction=="right"
+    {
+        border-right:$size $type $color;
+    }
+    @else
+    {
+        border:$size $type $color;
+    }
+}
+
+@mixin gradient($direction, $start, $end, $transTime:200ms, $hover:yes){
+    background-size: 100%;
+    background-image: linear-gradient($direction, $start, $end);
+    
+    &:before {
+        background-image: linear-gradient($direction, $end, $start);
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -100;
+        transition: opacity $transTime;
+    }
+
+
+    @if $hover=="yes"
+    {
+        position: relative;
+        z-index: 100;
+        
+        &:hover {
+            &:before {
+                opacity: 1;
+            }
+        }
+    }@else {
+        &:before {
+            display: none;
+        }
+    }
+}
+
+@mixin content($content:'') {
+    content: $content;
+    position: absolute;
+}
